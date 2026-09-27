@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: timesheet
-          image: j00seph/timesheet-devops:latest
+          image: elboh/timesheet-devops:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8082
