@@ -1,0 +1,21 @@
+Feature: Timesheet security acceptance tests
+
+  Scenario: Timesheet application must be healthy
+    When I launch a "generic" attack with:
+      """
+      curl -fsS http://minikube:30082/timesheet-devops/actuator/health
+      """
+    Then the output should contain:
+      """
+      "status":"UP"
+      """
+
+  Scenario: Sensitive actuator environment endpoint must not be exposed
+    When I launch a "generic" attack with:
+      """
+      curl -s -o /dev/null -w %{http_code} http://minikube:30082/timesheet-devops/actuator/env
+      """
+    Then the output should contain:
+      """
+      404
+      """
