@@ -74,6 +74,24 @@
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>3.1.0</version>
 			</plugin>
+			<plugin>
+				<groupId>com.github.spotbugs</groupId>
+    				<artifactId>spotbugs-maven-plugin</artifactId>
+			    	<version>4.10.4.1</version>
+    				<configuration>
+        				<effort>Max</effort>
+        				<threshold>Medium</threshold>
+        				<xmlOutput>true</xmlOutput>
+    				</configuration>
+
+    				<dependencies>
+        				<dependency>
+            					<groupId>com.h3xstream.findsecbugs</groupId>
+            					<artifactId>findsecbugs-plugin</artifactId>
+            					<version>1.14.0</version>
+        				</dependency>
+    				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 
